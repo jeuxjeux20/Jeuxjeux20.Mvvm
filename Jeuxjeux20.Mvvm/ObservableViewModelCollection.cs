@@ -4,11 +4,9 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using JetBrains.Annotations;
 
 namespace Jeuxjeux20.Mvvm
 {
-    [PublicAPI]
     public sealed class ObservableViewModelCollection<TViewModel, TModel> : ObservableCollection<TViewModel>
         where TViewModel : IViewModel<TModel> where TModel : class, new()
     {

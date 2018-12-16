@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using JetBrains.Annotations;
 
 namespace Jeuxjeux20.Mvvm
 {
-    [PublicAPI]
     public sealed class ObservableModelCollection<TModel> : ObservableCollection<TModel> where TModel : new()
     {
         public ObservableModelCollection()

@@ -1,30 +1,27 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <package>
   <metadata>
     <!--*-->
-    <id>$id$</id>
+    <id>Jeuxjeux20.Mvvm</id>
     <!--*-->
-    <version>$version$</version>
-    <title></title>
+    <version>1.0.0.1</version>
+    <title>Jeuxjeux20.Mvvm</title>
     <!--*-->
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-<!--
-    <licenseUrl></licenseUrl>
-    <projectUrl></projectUrl>
-    <iconUrl></iconUrl>
--->
+    <authors>jeuxjeux20</authors>
+    <owners>jeuxjeux20</owners>
+    <license type="url">https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm/blob/master/LICENSE</license>
+    <projectUrl>https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!--*-->
-    <description>$description$</description>
+    <description>A barely simple mvvm framework</description>
     <!--*-->
-    <releaseNotes> </releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags> </tags>
+    <releaseNotes>did the thing</releaseNotes>
+    <copyright>MIT LICENSE</copyright>
+    <tags>mvvm, framework</tags>
     <dependencies>
-      <!--
-      <dependency id="SampleDependency" version="1.0" />
--->
+      <dependency id="WindowsBase" version="4.0" />
+      <dependency id="PresentationCore" version="4.0" />
+      <dependency id="PresentationFramework" version="4.0" />
     </dependencies>
   </metadata>
 </package>
