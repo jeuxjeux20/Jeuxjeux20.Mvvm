@@ -7,10 +7,10 @@ This project contains helper classes for building a trully MVVM project.
 
 | Class                                               | Purpose                                                                                            |
 |-----------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| `DelegateCommand`                                   | Easily create an ICommand using delegates                                                          |
-| `PropertyChangedObject`                             | A multi-threaded object that implements INotifyPropertyChanged                                     |
+| `DelegateCommand`                                   | Easily create an annonymous `ICommand` using delegates                                                          |
+| `PropertyChangedObject`                             | A multi-threaded object that implements `INotifyPropertyChanged`                                  |
 | `IViewModel<TModel>`                                | An interface for each viewmodel that references the model                                          |
-| `ViewModelBase<TModel>`                             | A class that implements PropertyChangedObject,  and can be used for simpler and shorter viewmodels |
+| `ViewModelBase<TModel>`                             | A class that implements `PropertyChangedObject`,  and can be used for simpler and shorter viewmodels |
 | `ObservableModelCollection<TModel>`                      | An observable collection of models                                                                 |
 | `ObservableViewModelCollection<TViewModel, TModel>` | An observable collection of viewmodels and their models                                            |
 
