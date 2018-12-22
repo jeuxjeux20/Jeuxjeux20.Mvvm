@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <!--*-->
     <id>Jeuxjeux20.Mvvm</id>
@@ -9,7 +9,6 @@
     <!--*-->
     <authors>jeuxjeux20</authors>
     <owners>jeuxjeux20</owners>
-    <license type="url">https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm/blob/master/LICENSE</license>
     <projectUrl>https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!--*-->
@@ -23,5 +22,6 @@
       <dependency id="PresentationCore" version="4.0" />
       <dependency id="PresentationFramework" version="4.0" />
     </dependencies>
+    <license type="expression">MIT</license>
   </metadata>
 </package>

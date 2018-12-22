@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -23,19 +25,27 @@ namespace Jeuxjeux20.Mvvm
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
                     return;
                 }
-                foreach (var context in Contexts)
+
+                try
                 {
-                    if (context.Dispatcher == Dispatcher.CurrentDispatcher)
+                    foreach (var context in Contexts)
                     {
-                        // Called on the same thread as the sync. No need to use the context.
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                        if (context.Dispatcher == Dispatcher.CurrentDispatcher)
+                        {
+                            // Called on the same thread as the sync. No need to use the context.
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                        }
+                        else
+                        {
+                            context.Context.Post(
+                                _ => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)),
+                                null);
+                        }
                     }
-                    else
-                    {
-                        context.Context.Post(
-                            _ => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)),
-                            null);
-                    }
+                }
+                catch (InvalidOperationException e)
+                {
+                    Trace.WriteLine("[Jeuxjeux20.Mvvm] Something bad happened: " + e);
                 }
             }
         }
