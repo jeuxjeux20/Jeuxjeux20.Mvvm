@@ -8,6 +8,7 @@ namespace Jeuxjeux20.Mvvm
 {
     public sealed class ObservableModelCollection<TModel> : ObservableCollection<TModel> where TModel : new()
     {
+        
         public ObservableModelCollection()
         {
             CollectionChanged += Sync_Collection;

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <RootNamespace>Jeuxjeux20.Mvvm</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>An extension to Jeuxjeux20.Mvvm, which provides useful tools to use Application.Dispatcher and SynchronizationContext</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jeuxjeux20/Jeuxjeux20.Mvvm</RepositoryUrl>
+    <PackageTags>mvvm wpf framework async dispatcher thread</PackageTags>
+    <PackageReleaseNotes>It exists!!!</PackageReleaseNotes>
+    <Authors>jeuxjeux20</Authors>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jeuxjeux20.Mvvm\Jeuxjeux20.Mvvm.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+</Project>

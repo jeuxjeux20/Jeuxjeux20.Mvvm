@@ -7,9 +7,15 @@ using System.Linq;
 
 namespace Jeuxjeux20.Mvvm
 {
-    public sealed class ObservableViewModelCollection<TViewModel, TModel> : ObservableCollection<TViewModel>
+    public class ObservableViewModelCollection<TViewModel, TModel> : ObservableCollection<TViewModel>
         where TViewModel : IViewModel<TModel> where TModel : class, new()
     {
+        public sealed override event NotifyCollectionChangedEventHandler CollectionChanged // nope :v
+        {
+            add => base.CollectionChanged += value;
+            remove => base.CollectionChanged -= value;
+        }
+
         public ObservableViewModelCollection()
         {
             CollectionChanged += Sync_Collection;

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28621.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuxjeux20.Mvvm", "Jeuxjeux20.Mvvm\Jeuxjeux20.Mvvm.csproj", "{F2572BA4-BFC2-4797-BE78-11F6FA7C65B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuxjeux20.Mvvm.Wpf", "Jeuxjeux20.Mvvm.Wpf\Jeuxjeux20.Mvvm.Wpf.csproj", "{6A906D81-DF24-47AC-B0CC-E1BD931E2F95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F2572BA4-BFC2-4797-BE78-11F6FA7C65B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2572BA4-BFC2-4797-BE78-11F6FA7C65B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2572BA4-BFC2-4797-BE78-11F6FA7C65B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A906D81-DF24-47AC-B0CC-E1BD931E2F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A906D81-DF24-47AC-B0CC-E1BD931E2F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A906D81-DF24-47AC-B0CC-E1BD931E2F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A906D81-DF24-47AC-B0CC-E1BD931E2F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
