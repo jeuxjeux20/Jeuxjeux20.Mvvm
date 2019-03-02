@@ -47,8 +47,7 @@ namespace Jeuxjeux20.Mvvm
         public bool DisableSync { get; set; }
         public Action<TViewModel> ItemAdded { get; set; }
         public Action<TViewModel> ItemRemoved { get; set; }
-        private List<PropertyChangedAdder> _addHandlers = new List<PropertyChangedAdder>();
-        private List<PropertyChangedRemover> _removeHandlers = new List<PropertyChangedRemover>();
+
         private IList<TModel> ModelCollection { get; }
 
         public void ExecuteWithSyncDisabled(Action action)
@@ -58,34 +57,7 @@ namespace Jeuxjeux20.Mvvm
             DisableSync = false;
         }
 
-        public void SubscribeToPropertyChanged(PropertyChangedEventHandler handler)
-        {
-            foreach (var viewModel in this)
-            {
-                ((INotifyPropertyChanged)viewModel).PropertyChanged += handler;
-            }
 
-            var addHandler = new PropertyChangedAdder(handler);
-            var removeHandler = new PropertyChangedRemover(handler);
-            ItemAdded += addHandler;
-            ItemRemoved += removeHandler;
-            _addHandlers.Add(addHandler);
-            _removeHandlers.Add(removeHandler);
-        }
-        public void UnSubscribeToPropertyChanged(PropertyChangedEventHandler handler)
-        {
-            foreach (var viewModel in this)
-            {
-                ((INotifyPropertyChanged)viewModel).PropertyChanged -= handler;
-            }
-
-            var adder = _addHandlers.First(a => a.Handler == handler);
-            var remover = _removeHandlers.First(a => a.Handler == handler);
-            ItemAdded -= adder;
-            ItemRemoved -= remover;
-            _removeHandlers.Remove(remover);
-            _addHandlers.Remove(adder);
-        }
         private void Sync_Collection(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (DisableSync) return;
@@ -105,6 +77,7 @@ namespace Jeuxjeux20.Mvvm
                 }
         }
 
+        #region Property Changed stuff
         private abstract class PropertyChangedDealer
         {
             public abstract Action<TViewModel> Action { get; }
@@ -141,5 +114,36 @@ namespace Jeuxjeux20.Mvvm
             {
             }
         }
+        private List<PropertyChangedAdder> _addHandlers = new List<PropertyChangedAdder>();
+        private List<PropertyChangedRemover> _removeHandlers = new List<PropertyChangedRemover>();
+        public void SubscribeToPropertyChanged(PropertyChangedEventHandler handler)
+        {
+            foreach (var viewModel in this)
+            {
+                ((INotifyPropertyChanged)viewModel).PropertyChanged += handler;
+            }
+
+            var addHandler = new PropertyChangedAdder(handler);
+            var removeHandler = new PropertyChangedRemover(handler);
+            ItemAdded += addHandler;
+            ItemRemoved += removeHandler;
+            _addHandlers.Add(addHandler);
+            _removeHandlers.Add(removeHandler);
+        }
+        public void UnSubscribeToPropertyChanged(PropertyChangedEventHandler handler)
+        {
+            foreach (var viewModel in this)
+            {
+                ((INotifyPropertyChanged)viewModel).PropertyChanged -= handler;
+            }
+
+            var adder = _addHandlers.First(a => a.Handler == handler);
+            var remover = _removeHandlers.First(a => a.Handler == handler);
+            ItemAdded -= adder;
+            ItemRemoved -= remover;
+            _removeHandlers.Remove(remover);
+            _addHandlers.Remove(adder);
+        }
+        #endregion 
     }
 }
